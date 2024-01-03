@@ -1,0 +1,14 @@
+{
+  "name": "policymakers",
+  "version": "1.0.0",
+  "description": "Global Policy Makers",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Devi Sansthan",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
