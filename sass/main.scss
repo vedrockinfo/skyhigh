@@ -53,10 +53,10 @@ span,
 li, 
 figcaption {
   font-family: "Open Sans", sans-serif;
-  line-height: 30px;
-  font-size: 18px;
-  @media screen and (min-width:576.1px) and (max-width:992px) {
+  line-height: 1.82;
     font-size: 16px;
+  @media screen and (min-width:576.1px) and (max-width:992px) {
+    font-size: 15px;
   }
   @media screen and (max-width: 576px) {
     line-height: 26px;
@@ -106,7 +106,7 @@ figure {
 // Mixins
 
 .primaryHeading {
-  font-size: 5rem;
+  font-size: 2.5rem;
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
@@ -114,6 +114,12 @@ figure {
   span{
     text-transform: lowercase;
     font: inherit;
+  }
+  .skyh{
+    text-transform: uppercase;
+    color: transparent;
+    background-image: $GradientOne;
+    -webkit-background-clip:text;
   }
   @media screen and (min-width:576.1px) and (max-width:992px) {
     font-size: 3rem;
@@ -173,9 +179,26 @@ figure {
   }
 }
 .space30 {
-    height: 2rem;
+    height: 3rem;
+    @media screen and (max-width:768px) {
+      height: 2rem;
+    }
   }
 
+  .sub-heading{
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 700;
+    color: $colorPrimary;
+    text-align: center;
+  }
+
+  .heading-fourth {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+}
 
 .mt-large{
   margin-top: 70px;
@@ -186,6 +209,27 @@ figure {
     margin-top: 40px;
   }
 }
+
+.primary-list{
+  list-style: none;
+  li{
+    position: relative;
+    padding-left: 10px;
+    &:not(:last-child){
+      padding-bottom: 10px;
+    }
+    &::before{
+      content: "";
+      background: $colorPrimary;
+      position: absolute;
+      top: 10px;
+      left: -10px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
 
 // Main Styling
 
@@ -200,6 +244,9 @@ header {
     background: $colorWhite;
     animation: slidetop;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    .logo-grid img{
+      filter: none!important;
+    }
     @media screen and (min-width:992px) {
       .container{
         padding: 6px 0;
@@ -245,8 +292,7 @@ header {
       img {
         max-width: 200px;
         width: 100%;
-        background: $colorWhite;
-        padding: 8px 18px;
+        filter: brightness(12);
         @media screen and (min-width:992px) and (max-width:1199.9px) {
           max-width: 150px;
         }
@@ -406,11 +452,106 @@ header {
     }
 }
 }
+.why-sky{
+  .why-box-grid{
+    gap:30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .why-box-grid-items{
+      &:nth-child(1){
+        .outer-box{
+          border-color: $colorPink;
+          &:hover{
+            background: $colorPink;
+          }
+        }
+      }
+       &:nth-child(2){
+        .outer-box{
+          border-color: $colorOrange;
+          &:hover{
+            background: $colorOrange;
+          }
+        }
+      }
+       &:nth-child(3){
+        .outer-box{
+          border-color: $colorPurple;
+          &:hover{
+            background: $colorPurple;
+          }
+        }
+      }
+       &:nth-child(4){
+        .outer-box{
+          border-color: $colorGreen;
+          &:hover{
+            background: $colorGreen;
+          }
+        }
+      }
+       &:nth-child(5){
+        .outer-box{
+          border-color: $colorBlue;
+          &:hover{
+            background: $colorBlue;
+          }
+        }
+      }
+       &:nth-child(6){
+        .outer-box{
+          border-color: $colorPrimary;
+          &:hover{
+            background: $colorPrimary;
+          }
+        }
+      }
+    }
+  }
+  .outer-box{
+    border: 5px solid;
+    padding: 40px;
+    display: grid;
+    place-content: center;
+    min-height: 195px;
+    text-align: center;
+    border-radius: 30% 0 30% 0;
+    transition: all 0.5s;
+    &:hover{
+      border-radius: 0 30% 0 30%;
+      h4{
+        transition: all 0.5s;
+        color: $colorWhite;
+      }
+    }
+  }
+  .edu-table{
+    table, tr, td{
+      border: 1px solid $colorGrey;
+      border-collapse: collapse;
+    }
+    td, th {
+    padding: 6px 20px;
+}
+th{
+  color: $colorSecondary;
+  &:nth-child(1){
+    background: rgba($colorBlue, 1);
+  }
+  &:nth-child(2){
+    background: rgba($colorOrange, $alpha: 1);
+  }
+}
+  }
+}
 .alfa-sky-high{
+  .owl-nav{
+    position: absolute;
+  }
   .sunita{
     &__img{
       img{
-        height: 15rem;
+        height: 13.5rem;
       }
       ul{
         padding: 0 10px;
@@ -448,3 +589,223 @@ header {
       }
     }
   }
+  .key-question{
+    .mx-auto .container{
+      padding: 30px;
+      box-shadow: $boxShadow;
+      border: 1px solid $colorGrey;
+      border-radius: 20px;
+    }
+    .row{
+      align-items: center;
+      &:not(.last){
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba($colorSecondary, 0.5);
+      }
+    }
+    img{
+        width: 8rem;
+      }
+      .rad-btn{
+        input{
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          &+label{
+            text-transform: uppercase;
+            color: $colorSecondary;
+            background: transparent;
+            font-size: 14px;
+            padding: 4px 19px;
+            border-radius: 40px;
+            cursor: pointer;
+            border: 1px solid $colorSecondary;
+            transition: all 0.5s;
+            &:hover{
+              background: rgba($colorBlue, 0.2);
+            }
+          }
+          &:checked+label{
+              background: $colorSecondary;
+              color: $colorWhite;
+            }
+        }
+      }
+  }
+
+  section.quotes {
+    min-height: 475px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    padding-top: 7rem;
+    position: relative;
+    &::before{
+      content: "";
+      background: #000;
+      opacity: 0.2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .container{
+      position: relative;
+    }
+    .quote-wrapper{
+      background: rgba($colorBlue, 0.8);
+      border: 8px solid rgba($colorWhite, 0.8);
+      h2{
+        color: $colorWhite;
+        font-weight: 400;
+        font-size: 36px;
+      }
+      em{
+        color: $colorWhite;
+        font-weight: 400;
+        font-size: 36px;
+      }
+      @media screen and (min-width:768px) {
+        width: 575px;
+        padding: 30px;
+      }
+    }
+}
+.gevills{
+  background: rgba($colorGrey, 0.5);
+  .col-lg-7{
+    padding: 70px 0;
+    @media screen and (min-width:768px) {
+      .primaryHeading{
+        text-align: left;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+.background{
+  h2{
+    @media screen and (min-width:992px) {
+      text-align: left;
+    }
+  }
+  position: relative;
+  &::before{
+    content: "";
+    @media screen and (min-width:992px) {
+      background-image: url(../images/bg-02.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+  }
+  .container{
+    position: relative;
+    @media screen and (max-width:991.9px) {
+      .last{
+        background-image: url(../images/bg-02.jpg);
+        padding: 4rem 3rem;
+        background-repeat: no-repeat;
+    background-position: right center;
+    background-attachment: fixed;
+    background-size: cover;
+      }
+    }
+    @media screen and (min-width:992px) {
+      .first{
+      padding: 70px 0;
+    }
+    }
+  }
+  .bc-quotes {
+    background: #ffffffd6;
+    padding: 20px 50px;
+    .heading-five{
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+   @media screen and (min-width:992px) {
+     margin-top: 3rem;
+    margin-bottom: 3rem;
+    margin-left: 3rem;
+   }
+    border-radius: 15px;
+}
+}
+.empowering{
+  blockquote {
+    border-left: 5px solid $colorPrimary;
+    padding: 30px;
+    background: rgba($colorPrimary, 0.2);
+}
+  .empowering-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+    border: 4px solid $colorWhite;
+    box-shadow: $boxShadow;
+    .empowering-grid-items{
+      position: relative;
+      &:hover{
+        &::before{
+          top: 0;
+          height: 100%;
+          opacity: 1;
+        }
+        .fixed-empw{
+          top:50%;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        height: 0;
+        transition: all 0.5s;
+        background: rgba(#000, 0.5);
+      }
+      .fixed-empw{
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        color: $colorWhite;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s;
+      }
+    }
+}
+}
+
+.high-effect{
+  .wrapper-high {
+    display: flex;
+    overflow: hidden;
+    gap: 8px;
+    border: 8px solid $colorWhite;
+    box-shadow: $boxShadow;
+    img{
+      flex:0 0 50%;
+      max-width: 50%;
+      width: 100%;
+    }
+}
+}
