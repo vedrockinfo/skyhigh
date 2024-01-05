@@ -28,8 +28,13 @@ $boxShadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 a {
   text-decoration: none !important;
 }
-body {
+
+body{
   overflow-x: hidden;
+}
+
+*, html, body{
+  scroll-behavior: smooth!important;
 }
 
 /* --------------------- Base  End ----------------------------*/
@@ -201,12 +206,12 @@ figure {
 }
 
 .mt-large{
-  margin-top: 70px;
+  padding-top: 70px;
   @media screen and (max-width:992px) {
-    margin-top: 50px;
+    padding-top: 50px;
   }
   @media screen and (max-width:768px) {
-    margin-top: 40px;
+    padding-top: 40px;
   }
 }
 
@@ -252,7 +257,7 @@ header {
         padding: 6px 0;
         transition: all 0.5s;
         .logo-grid img {
-          max-width: 150px;
+          max-width: 120px;
           transition: all 0.5s;
         }
       }
@@ -266,7 +271,7 @@ header {
       }
     }
     .container {
-      padding: 15px 0;
+      padding: 5px 0;
     }
     .toggle-me-now span {
       background-color: $colorSecondary !important;
@@ -349,9 +354,8 @@ header {
             @media screen and (max-width:991.9px) {
               
             }
-            text-transform: capitalize;
+            text-transform: uppercase;
             font-size: 16px;
-            letter-spacing: 0.8px;
             font-weight: 500;
             @media screen and (min-width:992px) and (max-width:1199.9px) {
               font-size: 14px;
@@ -408,6 +412,12 @@ header {
     display: grid;
     height: 100vh;
     grid-template-columns: repeat(2, 1fr);
+  @media screen and (max-width:768px) {
+    grid-template-columns: repeat(1, 1fr);
+    height: auto;
+    padding-top: 140px;
+    padding-bottom: 50px;
+  }
     align-items: center;
     justify-content: space-between;
     &__Items{
@@ -416,6 +426,9 @@ header {
         color: $colorWhite;
         font-weight: 700;
         text-transform: uppercase;
+  @media screen and (max-width:768px) {
+    font-size: 36px;
+  }
       }
       h2{
         font-size: 24px;
@@ -457,6 +470,12 @@ header {
     gap:30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    @media screen and (max-width:992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width:768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
     .why-box-grid-items{
       &:nth-child(1){
         .outer-box{
@@ -533,13 +552,30 @@ header {
     td, th {
     padding: 6px 20px;
 }
+tr{
+  td{
+    transition: all 0.5s;
+    &:nth-child(1){
+      &:hover{
+        background: rgba($colorBlue, 0.1);
+      }
+    }
+    
+    &:nth-child(2){
+      &:hover{
+        background: rgba($colorOrange, 0.1);
+      }
+    }
+  }
+}
 th{
-  color: $colorSecondary;
   &:nth-child(1){
-    background: rgba($colorBlue, 1);
+    background: lighten($colorBlue, $amount: 25);
+    color: darken($colorBlue, $amount: 25);
   }
   &:nth-child(2){
-    background: rgba($colorOrange, $alpha: 1);
+    background: lighten($colorOrange, $amount: 15);
+    color: darken($colorOrange, $amount: 25);
   }
 }
   }
@@ -547,6 +583,19 @@ th{
 .alfa-sky-high{
   .owl-nav{
     position: absolute;
+    display: flex;
+    gap: 5px;
+    bottom: -15px;
+    button{
+      background: $colorSecondary!important;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-content: center;
+      i{
+        color: $colorWhite;
+      }
+    }
   }
   .sunita{
     &__img{
@@ -554,8 +603,9 @@ th{
         height: 13.5rem;
       }
       ul{
-        padding: 0 10px;
+        padding: 15px 10px;
         list-style: none;
+        margin-bottom: 0;
         li{
           font-size: 14px;
         }
@@ -570,7 +620,9 @@ th{
           border: 3px solid $colorSecondary;
           border-radius: 10px 10px 0 0;
           img{
-            width: 200px;
+            width: 100%;
+            object-fit: contain;
+            height: 250px;
           margin: auto;
           }
         }
@@ -676,8 +728,15 @@ th{
 }
 .gevills{
   background: rgba($colorGrey, 0.5);
+  margin-top: 70px;
+  @media screen and (max-width:992px) {
+    margin-top: 50px;
+  }
+  @media screen and (max-width:768px) {
+    margin-top: 40px;
+  }
   .col-lg-7{
-    padding: 70px 0;
+    padding: 0 0 70px 0;
     @media screen and (min-width:768px) {
       .primaryHeading{
         text-align: left;
@@ -687,29 +746,40 @@ th{
   }
 }
 .background{
+  .owl-background{
+    .owl-nav {
+    position: absolute;
+    right: 50px;
+    display: flex;
+    gap: 5px;
+    button{
+      background: $colorPrimary;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-content: center;
+      i{
+        color: $colorWhite;
+      }
+    }
+}
+    .item{
+      .contant-para{
+         padding: 25px;
+         border-left: 8px solid var(--clr);
+         background: rgba(var(--clr), 0.2); 
+         margin: 40px 0;
+        }
+    }
+  }
   h2{
     @media screen and (min-width:992px) {
       text-align: left;
     }
   }
-  position: relative;
-  &::before{
-    content: "";
-    @media screen and (min-width:992px) {
-      background-image: url(../images/bg-02.jpg);
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-attachment: fixed;
-    background-size: cover;
-    }
-    position: absolute;
-    right: 0;
-    width: 50%;
-    height: 100%;
-  }
   .container{
     position: relative;
-    @media screen and (max-width:991.9px) {
+    @media screen and (min-width:0.9px) {
       .last{
         background-image: url(../images/bg-02.jpg);
         padding: 4rem 3rem;
@@ -732,11 +802,6 @@ th{
       margin-bottom: 1rem;
       text-align: center;
     }
-   @media screen and (min-width:992px) {
-     margin-top: 3rem;
-    margin-bottom: 3rem;
-    margin-left: 3rem;
-   }
     border-radius: 15px;
 }
 }
@@ -754,6 +819,11 @@ th{
     box-shadow: $boxShadow;
     .empowering-grid-items{
       position: relative;
+      img{
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+      }
       &:hover{
         &::before{
           top: 0;

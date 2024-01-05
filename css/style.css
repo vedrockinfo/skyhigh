@@ -12,6 +12,9 @@ a {
 body {
   overflow-x: hidden; }
 
+*, html, body {
+  scroll-behavior: smooth !important; }
+
 /* --------------------- Base  End ----------------------------*/
 /* --------------------- Fonts ----------------------------*/
 h1,
@@ -168,13 +171,13 @@ figure {
   letter-spacing: 0.4px; }
 
 .mt-large {
-  margin-top: 70px; }
+  padding-top: 70px; }
   @media screen and (max-width: 992px) {
     .mt-large {
-      margin-top: 50px; } }
+      padding-top: 50px; } }
   @media screen and (max-width: 768px) {
     .mt-large {
-      margin-top: 40px; } }
+      padding-top: 40px; } }
 
 .primary-list {
   list-style: none; }
@@ -210,14 +213,14 @@ header {
         padding: 6px 0;
         transition: all 0.5s; }
         header.fixed-header .container .logo-grid img {
-          max-width: 150px;
+          max-width: 120px;
           transition: all 0.5s; } }
     header.fixed-header .nav-item:not(:last-child) {
       border-right: 1px solid rgba(244, 138, 60, 0.2) !important; }
     header.fixed-header .nav-item a {
       color: #3e4095 !important; }
     header.fixed-header .container {
-      padding: 15px 0; }
+      padding: 5px 0; }
     header.fixed-header .toggle-me-now span {
       background-color: #3e4095 !important; }
   header .container {
@@ -280,9 +283,8 @@ header {
         header .header-grid .navigation-link ul.navlist {
           width: 75%; } }
       header .header-grid .navigation-link ul.navlist li.nav-item {
-        text-transform: capitalize;
+        text-transform: uppercase;
         font-size: 16px;
-        letter-spacing: 0.8px;
         font-weight: 500; }
         @media screen and (min-width: 992px) {
           header .header-grid .navigation-link ul.navlist li.nav-item {
@@ -331,11 +333,20 @@ header {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     justify-content: space-between; }
+    @media screen and (max-width: 768px) {
+      .heroSection .kidsGrid {
+        grid-template-columns: repeat(1, 1fr);
+        height: auto;
+        padding-top: 140px;
+        padding-bottom: 50px; } }
     .heroSection .kidsGrid__Items h1 {
       font-size: 60px;
       color: #ffffff;
       font-weight: 700;
       text-transform: uppercase; }
+      @media screen and (max-width: 768px) {
+        .heroSection .kidsGrid__Items h1 {
+          font-size: 36px; } }
     .heroSection .kidsGrid__Items h2 {
       font-size: 24px;
       color: #ffffff;
@@ -368,6 +379,12 @@ header {
   gap: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr); }
+  @media screen and (max-width: 992px) {
+    .why-sky .why-box-grid {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media screen and (max-width: 768px) {
+    .why-sky .why-box-grid {
+      grid-template-columns: repeat(1, 1fr); } }
   .why-sky .why-box-grid .why-box-grid-items:nth-child(1) .outer-box {
     border-color: #ec268f; }
     .why-sky .why-box-grid .why-box-grid-items:nth-child(1) .outer-box:hover {
@@ -415,22 +432,42 @@ header {
 .why-sky .edu-table td, .why-sky .edu-table th {
   padding: 6px 20px; }
 
-.why-sky .edu-table th {
-  color: #3e4095; }
-  .why-sky .edu-table th:nth-child(1) {
-    background: #00afef; }
-  .why-sky .edu-table th:nth-child(2) {
-    background: #ffcc29; }
+.why-sky .edu-table tr td {
+  transition: all 0.5s; }
+  .why-sky .edu-table tr td:nth-child(1):hover {
+    background: rgba(0, 175, 239, 0.1); }
+  .why-sky .edu-table tr td:nth-child(2):hover {
+    background: rgba(255, 204, 41, 0.1); }
+
+.why-sky .edu-table th:nth-child(1) {
+  background: #70d9ff;
+  color: #005270; }
+
+.why-sky .edu-table th:nth-child(2) {
+  background: #ffde76;
+  color: #a98000; }
 
 .alfa-sky-high .owl-nav {
-  position: absolute; }
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  bottom: -15px; }
+  .alfa-sky-high .owl-nav button {
+    background: #3e4095 !important;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-content: center; }
+    .alfa-sky-high .owl-nav button i {
+      color: #ffffff; }
 
 .alfa-sky-high .sunita__img img {
   height: 13.5rem; }
 
 .alfa-sky-high .sunita__img ul {
-  padding: 0 10px;
-  list-style: none; }
+  padding: 15px 10px;
+  list-style: none;
+  margin-bottom: 0; }
   .alfa-sky-high .sunita__img ul li {
     font-size: 14px; }
 
@@ -441,7 +478,9 @@ header {
     border: 3px solid #3e4095;
     border-radius: 10px 10px 0 0; }
     .alfa-sky-high .training-group .item__img img {
-      width: 200px;
+      width: 100%;
+      object-fit: contain;
+      height: 250px;
       margin: auto; }
   .alfa-sky-high .training-group .item__content {
     padding: 20px;
@@ -525,57 +564,66 @@ section.quotes {
         padding: 30px; } }
 
 .gevills {
-  background: rgba(210, 211, 213, 0.5); }
+  background: rgba(210, 211, 213, 0.5);
+  margin-top: 70px; }
+  @media screen and (max-width: 992px) {
+    .gevills {
+      margin-top: 50px; } }
+  @media screen and (max-width: 768px) {
+    .gevills {
+      margin-top: 40px; } }
   .gevills .col-lg-7 {
-    padding: 70px 0; }
+    padding: 0 0 70px 0; }
     @media screen and (min-width: 768px) {
       .gevills .col-lg-7 .primaryHeading {
         text-align: left;
         margin-bottom: 2rem; } }
 
-.background {
+.background .owl-background .owl-nav {
+  position: absolute;
+  right: 50px;
+  display: flex;
+  gap: 5px; }
+  .background .owl-background .owl-nav button {
+    background: #f48a3c;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-content: center; }
+    .background .owl-background .owl-nav button i {
+      color: #ffffff; }
+
+.background .owl-background .item .contant-para {
+  padding: 25px;
+  border-left: 8px solid var(--clr);
+  background: rgba(var(--clr), 0.2);
+  margin: 40px 0; }
+
+@media screen and (min-width: 992px) {
+  .background h2 {
+    text-align: left; } }
+
+.background .container {
   position: relative; }
+  @media screen and (min-width: 0.9px) {
+    .background .container .last {
+      background-image: url(../images/bg-02.jpg);
+      padding: 4rem 3rem;
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-attachment: fixed;
+      background-size: cover; } }
   @media screen and (min-width: 992px) {
-    .background h2 {
-      text-align: left; } }
-  .background::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 50%;
-    height: 100%; }
-    @media screen and (min-width: 992px) {
-      .background::before {
-        background-image: url(../images/bg-02.jpg);
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-attachment: fixed;
-        background-size: cover; } }
-  .background .container {
-    position: relative; }
-    @media screen and (max-width: 991.9px) {
-      .background .container .last {
-        background-image: url(../images/bg-02.jpg);
-        padding: 4rem 3rem;
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-attachment: fixed;
-        background-size: cover; } }
-    @media screen and (min-width: 992px) {
-      .background .container .first {
-        padding: 70px 0; } }
-  .background .bc-quotes {
-    background: #ffffffd6;
-    padding: 20px 50px;
-    border-radius: 15px; }
-    .background .bc-quotes .heading-five {
-      margin-bottom: 1rem;
-      text-align: center; }
-    @media screen and (min-width: 992px) {
-      .background .bc-quotes {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-        margin-left: 3rem; } }
+    .background .container .first {
+      padding: 70px 0; } }
+
+.background .bc-quotes {
+  background: #ffffffd6;
+  padding: 20px 50px;
+  border-radius: 15px; }
+  .background .bc-quotes .heading-five {
+    margin-bottom: 1rem;
+    text-align: center; }
 
 .empowering blockquote {
   border-left: 5px solid #f48a3c;
@@ -590,6 +638,10 @@ section.quotes {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; }
   .empowering .empowering-grid .empowering-grid-items {
     position: relative; }
+    .empowering .empowering-grid .empowering-grid-items img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover; }
     .empowering .empowering-grid .empowering-grid-items:hover::before {
       top: 0;
       height: 100%;
