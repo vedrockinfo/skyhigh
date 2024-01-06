@@ -54,3 +54,6 @@ $('.owl-background').owlCarousel({
         }
     }
 })
+
+let fname = "vedant";
+console.log(fname);
