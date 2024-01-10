@@ -81,9 +81,11 @@ figure {
     outline: 3px solid $colorPrimary;
     border-radius: 10px 10px;
     &.qr-code{
-      margin-top: 3rem;
       img{
         @media screen and (min-width:768px) {
+          height: 7rem;
+        }
+        @media screen and (max-width:767.9px) {
           height: 7rem;
         }
       }
@@ -95,6 +97,7 @@ figure {
         text-align: center;
         padding: 5px 0;
         border-radius: 0 0 10px 10px;
+        font-size: 12px;
     }
 }
 
@@ -229,6 +232,14 @@ figure {
     line-height: 1.5;
     letter-spacing: 0;
 }
+
+ .heading-current {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
 
 .mt-large{
   padding-top: 70px;
@@ -556,7 +567,11 @@ header {
 .why-sky{
   .tara{
         width: calc(100% - 9rem);
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
+        @media screen and (max-width:992px) {
+          margin-top: 30px;
+        }
       }
   .why-box-grid{
     &.hjk{
@@ -658,6 +673,9 @@ header {
     }
     td, th {
     padding: 6px 20px;
+    @media screen and (max-width:576px) {
+      padding: 6px;
+    }
 }
 tr{
   td{
@@ -689,10 +707,9 @@ th{
 }
 .alfa-sky-high{
   .owl-nav{
-    position: absolute;
+    // position: absolute;
     display: flex;
     gap: 5px;
-    bottom: -15px;
     button{
       background: $colorSecondary!important;
       width: 30px;
@@ -749,13 +766,16 @@ th{
     }
   }
   .key-question{
-    .col-md-7 .container{
+    .col-lg-7 .container{
       padding: 30px;
       box-shadow: $boxShadow;
       border: 1px solid $colorGrey;
       border-radius: 20px;
+      @media screen and (max-width:768px) {
+       text-align: center; 
+      }
     }
-    .col-md-7 .row{
+    .col-lg-7 .row{
       align-items: center;
       &:not(.last){
         margin-bottom: 1.2rem;
@@ -763,8 +783,11 @@ th{
         border-bottom: 1px solid rgba($colorSecondary, 0.5);
       }
     }
-    img{
+    .col-md-3 img{
         width: 8rem;
+         @media screen and (max-width:768px) {
+       margin-bottom: 1rem; 
+      }
       }
       .rad-btn{
         input{
@@ -791,55 +814,37 @@ th{
             }
         }
       }
+      .quotes{
+        height: 100%;
+        position: relative;
+        @media screen and (max-width:992px) {
+          margin-top: 30px;
+        }
+        img{
+          height: 100%;
+    object-fit: cover;
+    object-position: 65% 100%;
+        }
+        .q-wrapper{
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         background: rgba($colorBlue, 0.8);
+         color: $colorWhite;
+         width: 100%;
+         padding: 10px 30px;
+         h2{
+          font-size: 20px;
+         }
+         em{
+          text-align: right;
+          display: block;
+         }
+      }
+      }
   }
 
-  .quotes {
-    min-height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    // background-attachment: fixed;
-    background-position: top;
-    display: grid;
-    place-content: center;
-    position: relative;
-    @media screen and (max-width:768px) {
-          margin-top: 2rem;
-        }
-    &::before{
-      content: "";
-      background: #000;
-      opacity: 0.2;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .container{
-      position: relative;
-    }
-    .quote-wrapper{
-      background: rgba($colorBlue, 0.8);
-      border: 8px solid rgba($colorWhite, 0.8);
-      @media screen and (max-width:768px){
-        margin: 5rem 0;
-      }
-      h2{ 
-        color: $colorWhite;
-        font-weight: 400;
-        font-size: 36px;
-      }
-      em{
-        color: $colorWhite;
-        font-weight: 400;
-        font-size: 36px;
-      }
-      @media screen and (min-width:768px) {
-        // width: 575px;
-        padding: 30px;
-      }
-    }
-}
+ 
 .gevills{
   background: rgba($colorGrey, 0.5);
   margin-top: 70px;
@@ -850,7 +855,7 @@ th{
     margin-top: 40px;
   }
   .col-lg-7{
-    padding: 0 0 70px 0;
+    padding-bottom: 70px;
     @media screen and (min-width:768px) {
       .primaryHeading{
         text-align: left;
@@ -860,12 +865,24 @@ th{
   }
 }
 .background{
+  .row{
+    @media screen and (max-width:992px) {
+      flex-direction: column-reverse;
+    }
+  }
   .owl-background{
     .owl-nav {
     position: absolute;
     right: 50px;
+    @media screen and (max-width:992px) {
+      bottom: 0;
+    }
     display: flex;
     gap: 5px;
+     @media screen and (max-width:768px) {
+       bottom: 0;
+    right: 0; 
+      }
     button{
       background: $colorPrimary;
       width: 30px;
@@ -883,6 +900,8 @@ th{
          border-left: 8px solid var(--clr);
          background: rgba(var(--clr), 0.2); 
          margin: 40px 0;
+         box-shadow: $boxShadow;
+         border-radius: 0 10px 10px 0;
         }
     }
   }
@@ -893,25 +912,25 @@ th{
   }
   .container{
     position: relative;
-    @media screen and (min-width:0.9px) {
       .last{
-        background-image: url(../images/bg-02.jpg);
-        padding: 4rem 3rem;
-        background-repeat: no-repeat;
-    background-position: right center;
-    background-attachment: fixed;
-    background-size: cover;
+        img{
+          height: 25rem;
+          object-fit: cover;
+          width: 100%;
+          @media screen and (max-width:992px) {
+            margin-top: 20px;
+          }
+        }
       }
-    }
     @media screen and (min-width:992px) {
       .first{
-      padding: 70px 0;
+      padding: 70px 0 70px 30px;
     }
     }
   }
   .bc-quotes {
     background: #ffffffd6;
-    padding: 20px 50px;
+  padding-top: 30px;
     .heading-five{
       margin-bottom: 1rem;
       text-align: center;
@@ -928,6 +947,12 @@ th{
   .empowering-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    @media screen and (max-width:992px){
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width:768px){
+      grid-template-columns: repeat(1, 1fr);
+    }
     gap: 4px;
     border: 4px solid $colorWhite;
     box-shadow: $boxShadow;
@@ -980,6 +1005,19 @@ th{
 }
 
 .high-effect{
+  .content-para{
+        @media screen and (max-width:767.9px) {
+          margin-top: 1rem;
+        }
+  }
+  .row.align-items-center{
+    margin-top: 3rem;
+    p{
+      @media screen and (min-width:576.1px) {
+        font-size: 20px;
+      }
+    }
+  }
   .wrapper-high {
     display: flex;
     overflow: hidden;
@@ -1254,13 +1292,86 @@ th{
   }
 }
 .certificate{
-  img{
-    @media screen and (min-width:1200px) {
-      height: calc(100vh - 100px);
-      width: 100%;
-      object-fit: cover;
-      object-position: bottom;
+  background-image: url(../images/certificate-bg.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 70px 0;
+  margin-top: 70px;
+  @media screen and (max-width:992px) {
+    padding: 50px 0;
+    margin-top: 50px;
+  }
+  @media screen and (max-width:768px) {
+    padding: 40px 0;
+    margin-top: 40px;
+  }
+  position: relative;
+  &::before{
+    content: "";
+    @media screen and (min-width:992px) {
+      background-image: repeating-linear-gradient(-45deg, #ffffff, #ffffff 10%, #e6e7e8 0, #e6e7e8 28%);
     }
+    position: absolute;
+    width: 100%;
+    height: 12rem;
+    bottom: 8rem;
+    left: 0;
+    z-index: 0;
+    @media screen and (min-width:992px) and (max-width:1199.9px){
+      height: 9.7rem;
+    }
+  }
+  .container{
+    position: relative;
+    z-index: 1;
+  }
+  @media screen and (max-width:992px) {
+    padding: 50px 0;
+  }
+  @media screen and (max-width:768px) {
+    padding: 40px 0;
+  }
+  .certi{
+    padding: 1rem 0;
+    position: relative;
+    bottom: 58px;
+    @media screen and (max-width:992px) {
+      margin-bottom: 30px;
+    text-align: center;
+    }
+    @media screen and (max-width:991.9px) {
+      background-image: repeating-linear-gradient(-45deg, #ffffff, #ffffff 10%, #e6e7e8 0, #e6e7e8 28%);
+      bottom: 0;
+    padding: 1rem;
+    }
+  }
+  h2{
+    font-size: 4rem;
+  }
+  h3{
+    @media screen and (min-width:992px) {
+      text-align: right;
+    }
+    font-size: 3.5rem;
+  }
+  @media screen and (max-width:991.9px) {
+    h2{
+    font-size: 2rem;
+  }
+  h3{
+    font-size: 1.5rem;
+  }
+}
+
+  @media screen and (min-width:992px) and (max-width:1199.9px) {
+    h2{
+    font-size: 3rem;
+  }
+  h3{
+    text-align: right;
+    font-size: 2.5rem;
+  }
   }
 }
 .toolkit-book{
@@ -1271,6 +1382,9 @@ th{
   .nav-link{
     width: 33.3333%;
     padding: 1rem;
+    @media screen and (max-width:576px) {
+      padding: 1rem 0.5rem;
+    }
     color: $colorWhite;
     background: $GradientOne;
     border-radius: 0;
@@ -1294,6 +1408,18 @@ th{
     padding: 2rem 3rem;
     border: 1px solid $colorSecondary;
     border-top: none;
+    @media screen and (max-width:768px) {
+      .col-md-4:not(:last-child){
+        img{
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .row{
+      @media screen and (max-width:768px) {
+        gap: 30pxn;
+      }
+    }
     .tab-pane{
       &:nth-child(1){
       p{
@@ -1330,21 +1456,24 @@ th{
   }
 }
 .paying-forward{
-  .row{
-    @media screen and (max-width:992.1px) {
-      gap: 30px;
-    }
-  }
   .paying-card{
+    @media screen and (max-width:992.1px) {
+      margin-top: 2rem; 
+    }
     position: relative;
     padding: 30px 20px 0px 40px;
     min-height: 243px;
     background-color: rgba($colorBlue, 0.2);
     display: grid;
     .icons{
-      position: absolute;
+      @media screen and (max-width:767.0px) {
+        text-align: center;
+      }
+      @media screen and (min-width:768px) {
+        position: absolute;
       top: 0;
       left: 0;
+      }
       img{
         width: 2.5rem;
       }
@@ -1370,6 +1499,30 @@ th{
   }
 }
 .paying-gallery{
+  .owl-nav{
+    .owl-prev, .owl-next {
+    position: absolute;
+    top: 43%;
+    transform: translateY(-50%); background: rgba($colorWhite, 0.8)!important;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    transition: all 0.5s;
+    &:hover{
+      background: $colorWhite!important;
+    }
+    i{
+      color: $colorSecondary;
+    }
+}
+  .owl-prev{
+      left: 0;
+    }
+    .owl-next {
+    right: 0;
+}
+  }
   .item{
     overflow: hidden;
     .pay-img{
@@ -1416,7 +1569,7 @@ footer{
   }
   background: $colorSecondary;
   padding-bottom: 70px;
-  margin-top: 70px;
+  // margin-top: 70px;
   position: relative;
   &::before{
     content: "";
@@ -1436,11 +1589,9 @@ footer{
   }
   @media screen and (max-width:992px) {
     padding-bottom: 50px;
-    margin-top: 50px;
   }
   @media screen and (max-width:768px) {
     padding-bottom: 40px;
-    margin-top: 40px;
   }
   h2{
     @media screen and (min-width:768px) {

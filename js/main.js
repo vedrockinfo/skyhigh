@@ -84,7 +84,7 @@ $('.praise').owlCarousel({
 $('.paing').owlCarousel({
     loop: true,
     margin: 0,
-    nav: false,
+    nav: true,
     dots: true,
     navText: ['<i class="fa-solid fa-arrow-left-long"></i>', '<i class="fa-solid fa-arrow-right-long"></i>'],
     autoplay: true,

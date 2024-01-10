@@ -59,18 +59,20 @@ figure {
   border: 2px solid #fff;
   outline: 3px solid #f48a3c;
   border-radius: 10px 10px; }
-  figure.qr-code {
-    margin-top: 3rem; }
-    @media screen and (min-width: 768px) {
-      figure.qr-code img {
-        height: 7rem; } }
+  @media screen and (min-width: 768px) {
+    figure.qr-code img {
+      height: 7rem; } }
+  @media screen and (max-width: 767.9px) {
+    figure.qr-code img {
+      height: 7rem; } }
   figure figcaption {
     background: #f48a3c;
     color: #ffffff;
     text-transform: uppercase;
     text-align: center;
     padding: 5px 0;
-    border-radius: 0 0 10px 10px; }
+    border-radius: 0 0 10px 10px;
+    font-size: 12px; }
 
 @keyframes slidetop {
   from {
@@ -178,6 +180,12 @@ figure {
 
 .heading-fourth {
   font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0; }
+
+.heading-current {
+  font-size: 24px;
   font-weight: 600;
   line-height: 1.5;
   letter-spacing: 0; }
@@ -429,7 +437,11 @@ header {
 
 .why-sky .tara {
   width: calc(100% - 9rem);
-  margin: auto; }
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (max-width: 992px) {
+    .why-sky .tara {
+      margin-top: 30px; } }
 
 .why-sky .why-box-grid {
   gap: 30px;
@@ -500,6 +512,9 @@ header {
 
 .why-sky .edu-table td, .why-sky .edu-table th {
   padding: 6px 20px; }
+  @media screen and (max-width: 576px) {
+    .why-sky .edu-table td, .why-sky .edu-table th {
+      padding: 6px; } }
 
 .why-sky .edu-table tr td {
   transition: all 0.5s; }
@@ -517,10 +532,8 @@ header {
   color: #a98000; }
 
 .alfa-sky-high .owl-nav {
-  position: absolute;
   display: flex;
-  gap: 5px;
-  bottom: -15px; }
+  gap: 5px; }
   .alfa-sky-high .owl-nav button {
     background: #3e4095 !important;
     width: 30px;
@@ -561,21 +574,27 @@ header {
     .alfa-sky-high .training-group .item__content h6 {
       color: #ffffff; }
 
-.key-question .col-md-7 .container {
+.key-question .col-lg-7 .container {
   padding: 30px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border: 1px solid #d2d3d5;
   border-radius: 20px; }
+  @media screen and (max-width: 768px) {
+    .key-question .col-lg-7 .container {
+      text-align: center; } }
 
-.key-question .col-md-7 .row {
+.key-question .col-lg-7 .row {
   align-items: center; }
-  .key-question .col-md-7 .row:not(.last) {
+  .key-question .col-lg-7 .row:not(.last) {
     margin-bottom: 1.2rem;
     padding-bottom: 1.2rem;
     border-bottom: 1px solid rgba(62, 64, 149, 0.5); }
 
-.key-question img {
+.key-question .col-md-3 img {
   width: 8rem; }
+  @media screen and (max-width: 768px) {
+    .key-question .col-md-3 img {
+      margin-bottom: 1rem; } }
 
 .key-question .rad-btn input {
   opacity: 0;
@@ -597,45 +616,29 @@ header {
     background: #3e4095;
     color: #ffffff; }
 
-.quotes {
-  min-height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-  display: grid;
-  place-content: center;
+.key-question .quotes {
+  height: 100%;
   position: relative; }
-  @media screen and (max-width: 768px) {
-    .quotes {
-      margin-top: 2rem; } }
-  .quotes::before {
-    content: "";
-    background: #000;
-    opacity: 0.2;
+  @media screen and (max-width: 992px) {
+    .key-question .quotes {
+      margin-top: 30px; } }
+  .key-question .quotes img {
+    height: 100%;
+    object-fit: cover;
+    object-position: 65% 100%; }
+  .key-question .quotes .q-wrapper {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%; }
-  .quotes .container {
-    position: relative; }
-  .quotes .quote-wrapper {
     background: rgba(0, 175, 239, 0.8);
-    border: 8px solid rgba(255, 255, 255, 0.8); }
-    @media screen and (max-width: 768px) {
-      .quotes .quote-wrapper {
-        margin: 5rem 0; } }
-    .quotes .quote-wrapper h2 {
-      color: #ffffff;
-      font-weight: 400;
-      font-size: 36px; }
-    .quotes .quote-wrapper em {
-      color: #ffffff;
-      font-weight: 400;
-      font-size: 36px; }
-    @media screen and (min-width: 768px) {
-      .quotes .quote-wrapper {
-        padding: 30px; } }
+    color: #ffffff;
+    width: 100%;
+    padding: 10px 30px; }
+    .key-question .quotes .q-wrapper h2 {
+      font-size: 20px; }
+    .key-question .quotes .q-wrapper em {
+      text-align: right;
+      display: block; }
 
 .gevills {
   background: rgba(210, 211, 213, 0.5);
@@ -647,17 +650,28 @@ header {
     .gevills {
       margin-top: 40px; } }
   .gevills .col-lg-7 {
-    padding: 0 0 70px 0; }
+    padding-bottom: 70px; }
     @media screen and (min-width: 768px) {
       .gevills .col-lg-7 .primaryHeading {
         text-align: left;
         margin-bottom: 2rem; } }
+
+@media screen and (max-width: 992px) {
+  .background .row {
+    flex-direction: column-reverse; } }
 
 .background .owl-background .owl-nav {
   position: absolute;
   right: 50px;
   display: flex;
   gap: 5px; }
+  @media screen and (max-width: 992px) {
+    .background .owl-background .owl-nav {
+      bottom: 0; } }
+  @media screen and (max-width: 768px) {
+    .background .owl-background .owl-nav {
+      bottom: 0;
+      right: 0; } }
   .background .owl-background .owl-nav button {
     background: #f48a3c;
     width: 30px;
@@ -671,7 +685,9 @@ header {
   padding: 25px;
   border-left: 8px solid var(--clr);
   background: rgba(var(--clr), 0.2);
-  margin: 40px 0; }
+  margin: 40px 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 0 10px 10px 0; }
 
 @media screen and (min-width: 992px) {
   .background h2 {
@@ -679,21 +695,20 @@ header {
 
 .background .container {
   position: relative; }
-  @media screen and (min-width: 0.9px) {
-    .background .container .last {
-      background-image: url(../images/bg-02.jpg);
-      padding: 4rem 3rem;
-      background-repeat: no-repeat;
-      background-position: right center;
-      background-attachment: fixed;
-      background-size: cover; } }
+  .background .container .last img {
+    height: 25rem;
+    object-fit: cover;
+    width: 100%; }
+    @media screen and (max-width: 992px) {
+      .background .container .last img {
+        margin-top: 20px; } }
   @media screen and (min-width: 992px) {
     .background .container .first {
-      padding: 70px 0; } }
+      padding: 70px 0 70px 30px; } }
 
 .background .bc-quotes {
   background: #ffffffd6;
-  padding: 20px 50px;
+  padding-top: 30px;
   border-radius: 15px; }
   .background .bc-quotes .heading-five {
     margin-bottom: 1rem;
@@ -710,6 +725,12 @@ header {
   gap: 4px;
   border: 4px solid #ffffff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; }
+  @media screen and (max-width: 992px) {
+    .empowering .empowering-grid {
+      grid-template-columns: repeat(3, 1fr); } }
+  @media screen and (max-width: 768px) {
+    .empowering .empowering-grid {
+      grid-template-columns: repeat(1, 1fr); } }
   .empowering .empowering-grid .empowering-grid-items {
     position: relative; }
     .empowering .empowering-grid .empowering-grid-items img {
@@ -747,6 +768,16 @@ header {
       opacity: 0;
       visibility: hidden;
       transition: all 0.5s; }
+
+@media screen and (max-width: 767.9px) {
+  .high-effect .content-para {
+    margin-top: 1rem; } }
+
+.high-effect .row.align-items-center {
+  margin-top: 3rem; }
+  @media screen and (min-width: 576.1px) {
+    .high-effect .row.align-items-center p {
+      font-size: 20px; } }
 
 .high-effect .wrapper-high {
   display: flex;
@@ -969,12 +1000,76 @@ header {
     width: 6rem;
     margin: 0 auto 1rem; }
 
-@media screen and (min-width: 1200px) {
-  .certificate img {
-    height: calc(100vh - 100px);
+.certificate {
+  background-image: url(../images/certificate-bg.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 70px 0;
+  margin-top: 70px;
+  position: relative; }
+  @media screen and (max-width: 992px) {
+    .certificate {
+      padding: 50px 0;
+      margin-top: 50px; } }
+  @media screen and (max-width: 768px) {
+    .certificate {
+      padding: 40px 0;
+      margin-top: 40px; } }
+  .certificate::before {
+    content: "";
+    position: absolute;
     width: 100%;
-    object-fit: cover;
-    object-position: bottom; } }
+    height: 12rem;
+    bottom: 8rem;
+    left: 0;
+    z-index: 0; }
+    @media screen and (min-width: 992px) {
+      .certificate::before {
+        background-image: repeating-linear-gradient(-45deg, #ffffff, #ffffff 10%, #e6e7e8 0, #e6e7e8 28%); } }
+    @media screen and (min-width: 992px) and (max-width: 1199.9px) {
+      .certificate::before {
+        height: 9.7rem; } }
+  .certificate .container {
+    position: relative;
+    z-index: 1; }
+  @media screen and (max-width: 992px) {
+    .certificate {
+      padding: 50px 0; } }
+  @media screen and (max-width: 768px) {
+    .certificate {
+      padding: 40px 0; } }
+  .certificate .certi {
+    padding: 1rem 0;
+    position: relative;
+    bottom: 58px; }
+    @media screen and (max-width: 992px) {
+      .certificate .certi {
+        margin-bottom: 30px;
+        text-align: center; } }
+    @media screen and (max-width: 991.9px) {
+      .certificate .certi {
+        background-image: repeating-linear-gradient(-45deg, #ffffff, #ffffff 10%, #e6e7e8 0, #e6e7e8 28%);
+        bottom: 0;
+        padding: 1rem; } }
+  .certificate h2 {
+    font-size: 4rem; }
+  .certificate h3 {
+    font-size: 3.5rem; }
+    @media screen and (min-width: 992px) {
+      .certificate h3 {
+        text-align: right; } }
+  @media screen and (max-width: 991.9px) {
+    .certificate h2 {
+      font-size: 2rem; }
+    .certificate h3 {
+      font-size: 1.5rem; } }
+  @media screen and (min-width: 992px) and (max-width: 1199.9px) {
+    .certificate h2 {
+      font-size: 3rem; }
+    .certificate h3 {
+      text-align: right;
+      font-size: 2.5rem; } }
 
 .toolkit-book nav {
   border-left: 1px solid #3e4095;
@@ -986,6 +1081,9 @@ header {
   color: #ffffff;
   background: linear-gradient(135deg, #41b7e9 0%, #2482c4 50%);
   border-radius: 0; }
+  @media screen and (max-width: 576px) {
+    .toolkit-book .nav-link {
+      padding: 1rem 0.5rem; } }
   .toolkit-book .nav-link.active {
     background: #3e4095;
     color: #ffffff;
@@ -1004,6 +1102,12 @@ header {
   padding: 2rem 3rem;
   border: 1px solid #3e4095;
   border-top: none; }
+  @media screen and (max-width: 768px) {
+    .toolkit-book .tab-content .col-md-4:not(:last-child) img {
+      margin-bottom: 20px; } }
+  @media screen and (max-width: 768px) {
+    .toolkit-book .tab-content .row {
+      gap: 30pxn; } }
   .toolkit-book .tab-content .tab-pane:nth-child(1) p {
     background: rgba(244, 138, 60, 0.2); }
   .toolkit-book .tab-content .tab-pane:nth-child(2) p {
@@ -1025,22 +1129,25 @@ header {
       .toolkit-book .tab-content img {
         width: calc(100% - 100px); } }
 
-@media screen and (max-width: 992.1px) {
-  .paying-forward .row {
-    gap: 30px; } }
-
 .paying-forward .paying-card {
   position: relative;
   padding: 30px 20px 0px 40px;
   min-height: 243px;
   background-color: rgba(0, 175, 239, 0.2);
   display: grid; }
-  .paying-forward .paying-card .icons {
-    position: absolute;
-    top: 0;
-    left: 0; }
-    .paying-forward .paying-card .icons img {
-      width: 2.5rem; }
+  @media screen and (max-width: 992.1px) {
+    .paying-forward .paying-card {
+      margin-top: 2rem; } }
+  @media screen and (max-width: 767px) {
+    .paying-forward .paying-card .icons {
+      text-align: center; } }
+  @media screen and (min-width: 768px) {
+    .paying-forward .paying-card .icons {
+      position: absolute;
+      top: 0;
+      left: 0; } }
+  .paying-forward .paying-card .icons img {
+    width: 2.5rem; }
   .paying-forward .paying-card a {
     color: #373435;
     text-decoration: underline !important;
@@ -1056,6 +1163,27 @@ header {
   height: 215px;
   object-fit: cover;
   width: 100%; }
+
+.paying-gallery .owl-nav .owl-prev, .paying-gallery .owl-nav .owl-next {
+  position: absolute;
+  top: 43%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8) !important;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-content: center;
+  transition: all 0.5s; }
+  .paying-gallery .owl-nav .owl-prev:hover, .paying-gallery .owl-nav .owl-next:hover {
+    background: #ffffff !important; }
+  .paying-gallery .owl-nav .owl-prev i, .paying-gallery .owl-nav .owl-next i {
+    color: #3e4095; }
+
+.paying-gallery .owl-nav .owl-prev {
+  left: 0; }
+
+.paying-gallery .owl-nav .owl-next {
+  right: 0; }
 
 .paying-gallery .item {
   overflow: hidden; }
@@ -1089,7 +1217,6 @@ header {
 footer {
   background: #3e4095;
   padding-bottom: 70px;
-  margin-top: 70px;
   position: relative; }
   footer .border-footer {
     background: #ffffff;
@@ -1112,12 +1239,10 @@ footer {
     position: relative; }
   @media screen and (max-width: 992px) {
     footer {
-      padding-bottom: 50px;
-      margin-top: 50px; } }
+      padding-bottom: 50px; } }
   @media screen and (max-width: 768px) {
     footer {
-      padding-bottom: 40px;
-      margin-top: 40px; } }
+      padding-bottom: 40px; } }
   @media screen and (min-width: 768px) {
     footer h2 {
       text-align: left !important; } }
