@@ -286,7 +286,8 @@ header {
     animation: slidetop;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     .logo-grid img{
-      filter: none!important;
+      background-image: $GradientOne;
+      padding: 2px 4.5px 3px 0;
     }
     @media screen and (min-width:992px) {
       .container{
@@ -333,7 +334,6 @@ header {
       img {
         max-width: 200px;
         width: 100%;
-        filter: brightness(12);
         @media screen and (min-width:992px) and (max-width:1199.9px) {
           max-width: 150px;
         }
@@ -783,12 +783,16 @@ th{
         border-bottom: 1px solid rgba($colorSecondary, 0.5);
       }
     }
-    .col-md-3 img{
-        width: 8rem;
-         @media screen and (max-width:768px) {
-       margin-bottom: 1rem; 
+    .ques-wrapper{
+      background: var(--clk);
+      text-align: center;
+      img{
+        height: 84px;
+        object-fit: contain;
+        object-position: center;
+        padding: 10px;
       }
-      }
+    }
       .rad-btn{
         input{
           opacity: 0;
@@ -821,18 +825,18 @@ th{
           margin-top: 30px;
         }
         img{
-          height: 100%;
+          height: calc(100% - 68px);
     object-fit: cover;
     object-position: 65% 100%;
         }
         .q-wrapper{
-         position: absolute;
-         bottom: 0;
-         left: 0;
+        //  position: absolute;
+        //  bottom: 0;
+        //  left: 0;
          background: rgba($colorBlue, 0.8);
          color: $colorWhite;
          width: 100%;
-         padding: 10px 30px;
+         padding: 5px 30px;
          h2{
           font-size: 20px;
          }
@@ -917,6 +921,7 @@ th{
           height: 25rem;
           object-fit: cover;
           width: 100%;
+          object-position: 100% 32%;
           @media screen and (max-width:992px) {
             margin-top: 20px;
           }
@@ -938,6 +943,7 @@ th{
     border-radius: 15px;
 }
 }
+
 .empowering{
   blockquote {
     border-left: 5px solid $colorPrimary;
@@ -1561,6 +1567,13 @@ th{
   }
 }
 footer{
+  margin-top: 70px;
+  @media screen and (max-width:992px) {
+    margin-top: 50px;
+  }
+  @media screen and (max-width:768px) {
+    margin-top: 40px;
+  }
   .border-footer{
     background: $colorWhite;
     height: 5px;
@@ -1647,4 +1660,221 @@ img.footer-alfa {
     filter: brightness(6);
     margin-top: 2rem;
 }
+}
+
+.inner-section{
+  background: $colorSecondary;
+  position: relative;
+  min-height: 450px;
+  display: grid;
+  place-content: center;
+  
+    @media screen and (max-width:992px) and (min-width:576px) {
+      min-height: 380px;
+    }
+    @media screen and (max-width:575.9px) {
+      min-height: 250px;
+    }
+  &::before{
+        content: "";
+    background-image: url(../gallery/img/image191.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    mix-blend-mode: soft-light;
+    background-position: 100% 30%;
+    background-repeat: no-repeat;
+  }
+  .container{
+    position: relative;
+  }
+  h1{
+    padding-top: 50px;
+    text-transform: uppercase;
+    color: $colorWhite;
+    font-size: 72px;
+    @media screen and (max-width:992px) and (min-width:576px) {
+      font-size: 48px;
+    }
+    @media screen and (max-width:575.9px) {
+      font-size: 36px;
+    }
+  }
+}
+
+.lightbox-gallery{
+  .carousel-indicators {
+    display: none;
+}
+    @keyframes zoomin {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.gallery-item {
+  display: block;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    filter: none!important;
+    &::after{
+        width: 100%;
+        height: 4rem;
+        filter: brightness(10);
+    }
+}
+.gallery-item img {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s;
+  height: 270px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  @media screen and (max-width:575.9px) {
+    height: 240px;
+  }
+}
+
+.gallery-item:hover img {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.35);
+}
+
+.lightbox-modal .modal-content {
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(5px);
+  cursor: -webkit-grabbing;
+}
+
+.lightbox-modal .btn-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 2.2rem;
+  z-index: 10;
+  filter: invert(1) grayscale(100);
+  @media screen and (max-width:575.9px) {
+    font-size: 1rem;
+  }
+}
+
+.lightbox-modal .modal-body {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.lightbox-modal .lightbox-content {
+  width: 100%;
+}
+
+.lightbox-modal .carousel-indicators {
+  margin-bottom: 0;
+}
+
+
+.lightbox-modal .carousel-inner {
+  width: 75%;
+}
+
+.lightbox-modal .carousel-inner img {
+  animation: zoomin 10s linear infinite;
+  max-height: 80vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+.lightbox-modal .carousel-item .carousel-caption {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 2rem;
+  h4{
+    color: $colorWhite;
+    background: rgba($colorBlack, 0.8);
+    padding: 10px;
+  }
+}
+
+.lightbox-modal .carousel-control-prev,
+.lightbox-modal .carousel-control-next {
+  width: auto;
+}
+
+.lightbox-modal .carousel-control-prev {
+  left: 1.25rem;
+}
+
+.lightbox-modal .carousel-control-next {
+  right: 1.25rem;
+}
+
+@media (min-width: 1400px) {
+  .lightbox-modal .carousel-inner {
+    max-width: 60%;
+  }
+}
+
+[data-bs-theme = "dark"] .lightbox-modal .carousel-control-next-icon,
+[data-bs-theme = "dark"] .lightbox-modal .carousel-control-prev-icon {
+    filter: none;
+}
+
+.btn-fullscreen-enlarge,
+.btn-fullscreen-exit {
+  position: absolute;
+  top: 1.25rem;
+  right: 3.5rem;
+  z-index: 10;
+  border: 0;
+  background: transparent;
+  opacity: .6;
+  font-size: 1.25rem;
+}
+}
+.cms-cis-gallery{
+  .gallery-cis{
+    img{
+      height: 206.2px;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid $colorSecondary;
+      border-radius: 10px;
+      width: 100%;
+    }
+  }
+  .owl-nav{
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+    button i{
+      color: $colorWhite;
+      background: $colorSecondary;
+      padding: 10px;
+    }
+  }
+  .gal-btn{
+    text-align: center;
+    a{
+      background: $colorSecondary;
+      text-transform: capitalize;
+      font-weight: 700;
+      border-radius: 30px;
+      width: 270px;
+      border: 1px solid $colorSecondary;
+      transition: all 0.5s;
+      &:hover{
+        background: transparent;
+        color: $colorSecondary;
+      }
+    }
+  }
 }
