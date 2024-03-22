@@ -19,6 +19,15 @@ $GradientOne:linear-gradient(135deg, rgba(65,183,233,1) 0%, rgba(36,130,196,1) 5
 
 $boxShadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
+@keyframes bouncing {
+  0% {
+      transform:translateY(0); 
+  }
+  100% {
+    transform:translateY(-20px);
+  }
+}
+
 /* --------------------- Base  ----------------------------*/
 
 * {
@@ -81,9 +90,11 @@ figure {
     outline: 3px solid $colorPrimary;
     border-radius: 10px 10px;
     &.qr-code{
-      margin-top: 3rem;
       img{
         @media screen and (min-width:768px) {
+          height: 7rem;
+        }
+        @media screen and (max-width:767.9px) {
           height: 7rem;
         }
       }
@@ -95,6 +106,7 @@ figure {
         text-align: center;
         padding: 5px 0;
         border-radius: 0 0 10px 10px;
+        font-size: 12px;
     }
 }
 
@@ -230,6 +242,14 @@ figure {
     letter-spacing: 0;
 }
 
+ .heading-current {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+
 .mt-large{
   padding-top: 70px;
   @media screen and (max-width:992px) {
@@ -275,7 +295,8 @@ header {
     animation: slidetop;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     .logo-grid img{
-      filter: none!important;
+      // background-image: $GradientOne;
+      padding: 2px 4.5px 3px 0;
     }
     @media screen and (min-width:992px) {
       .container{
@@ -322,7 +343,6 @@ header {
       img {
         max-width: 200px;
         width: 100%;
-        filter: brightness(12);
         @media screen and (min-width:992px) and (max-width:1199.9px) {
           max-width: 150px;
         }
@@ -469,6 +489,7 @@ header {
         }
       }
       .kids-img{
+        animation: bouncing .63s ease-in-out infinite alternate;
         img{
           width: 100%;
         }
@@ -556,7 +577,11 @@ header {
 .why-sky{
   .tara{
         width: calc(100% - 9rem);
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
+        @media screen and (max-width:992px) {
+          margin-top: 30px;
+        }
       }
   .why-box-grid{
     &.hjk{
@@ -658,6 +683,9 @@ header {
     }
     td, th {
     padding: 6px 20px;
+    @media screen and (max-width:576px) {
+      padding: 6px;
+    }
 }
 tr{
   td{
@@ -689,10 +717,9 @@ th{
 }
 .alfa-sky-high{
   .owl-nav{
-    position: absolute;
+    // position: absolute;
     display: flex;
     gap: 5px;
-    bottom: -15px;
     button{
       background: $colorSecondary!important;
       width: 30px;
@@ -749,13 +776,16 @@ th{
     }
   }
   .key-question{
-    .col-md-7 .container{
+    .col-lg-7 .container{
       padding: 30px;
       box-shadow: $boxShadow;
       border: 1px solid $colorGrey;
       border-radius: 20px;
+      @media screen and (max-width:768px) {
+       text-align: center; 
+      }
     }
-    .col-md-7 .row{
+    .col-lg-7 .row{
       align-items: center;
       &:not(.last){
         margin-bottom: 1.2rem;
@@ -763,9 +793,16 @@ th{
         border-bottom: 1px solid rgba($colorSecondary, 0.5);
       }
     }
-    img{
-        width: 8rem;
+    .ques-wrapper{
+      background: var(--clk);
+      text-align: center;
+      img{
+        height: 84px;
+        object-fit: contain;
+        object-position: center;
+        padding: 10px;
       }
+    }
       .rad-btn{
         input{
           opacity: 0;
@@ -791,55 +828,37 @@ th{
             }
         }
       }
+      .quotes{
+        height: 100%;
+        position: relative;
+        @media screen and (max-width:992px) {
+          margin-top: 30px;
+        }
+        img{
+          height: calc(100% - 68px);
+    object-fit: cover;
+    object-position: 65% 100%;
+        }
+        .q-wrapper{
+        //  position: absolute;
+        //  bottom: 0;
+        //  left: 0;
+         background: rgba($colorBlue, 0.8);
+         color: $colorWhite;
+         width: 100%;
+         padding: 5px 30px;
+         h2{
+          font-size: 20px;
+         }
+         em{
+          text-align: right;
+          display: block;
+         }
+      }
+      }
   }
 
-  .quotes {
-    min-height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    // background-attachment: fixed;
-    background-position: top;
-    display: grid;
-    place-content: center;
-    position: relative;
-    @media screen and (max-width:768px) {
-          margin-top: 2rem;
-        }
-    &::before{
-      content: "";
-      background: #000;
-      opacity: 0.2;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .container{
-      position: relative;
-    }
-    .quote-wrapper{
-      background: rgba($colorBlue, 0.8);
-      border: 8px solid rgba($colorWhite, 0.8);
-      @media screen and (max-width:768px){
-        margin: 5rem 0;
-      }
-      h2{ 
-        color: $colorWhite;
-        font-weight: 400;
-        font-size: 36px;
-      }
-      em{
-        color: $colorWhite;
-        font-weight: 400;
-        font-size: 36px;
-      }
-      @media screen and (min-width:768px) {
-        // width: 575px;
-        padding: 30px;
-      }
-    }
-}
+ 
 .gevills{
   background: rgba($colorGrey, 0.5);
   margin-top: 70px;
@@ -850,7 +869,7 @@ th{
     margin-top: 40px;
   }
   .col-lg-7{
-    padding: 0 0 70px 0;
+    padding-bottom: 70px;
     @media screen and (min-width:768px) {
       .primaryHeading{
         text-align: left;
@@ -860,12 +879,24 @@ th{
   }
 }
 .background{
+  .row{
+    @media screen and (max-width:992px) {
+      flex-direction: column-reverse;
+    }
+  }
   .owl-background{
     .owl-nav {
     position: absolute;
     right: 50px;
+    @media screen and (max-width:992px) {
+      bottom: 0;
+    }
     display: flex;
     gap: 5px;
+     @media screen and (max-width:768px) {
+       bottom: 0;
+    right: 0; 
+      }
     button{
       background: $colorPrimary;
       width: 30px;
@@ -883,6 +914,8 @@ th{
          border-left: 8px solid var(--clr);
          background: rgba(var(--clr), 0.2); 
          margin: 40px 0;
+         box-shadow: $boxShadow;
+         border-radius: 0 10px 10px 0;
         }
     }
   }
@@ -893,25 +926,26 @@ th{
   }
   .container{
     position: relative;
-    @media screen and (min-width:0.9px) {
       .last{
-        background-image: url(../images/bg-02.jpg);
-        padding: 4rem 3rem;
-        background-repeat: no-repeat;
-    background-position: right center;
-    background-attachment: fixed;
-    background-size: cover;
+        img{
+          height: 25rem;
+          object-fit: cover;
+          width: 100%;
+          object-position: 100% 32%;
+          @media screen and (max-width:992px) {
+            margin-top: 20px;
+          }
+        }
       }
-    }
     @media screen and (min-width:992px) {
       .first{
-      padding: 70px 0;
+      padding: 70px 0 70px 30px;
     }
     }
   }
   .bc-quotes {
     background: #ffffffd6;
-    padding: 20px 50px;
+  padding-top: 30px;
     .heading-five{
       margin-bottom: 1rem;
       text-align: center;
@@ -919,6 +953,7 @@ th{
     border-radius: 15px;
 }
 }
+
 .empowering{
   blockquote {
     border-left: 5px solid $colorPrimary;
@@ -928,6 +963,12 @@ th{
   .empowering-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    @media screen and (max-width:992px){
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width:768px){
+      grid-template-columns: repeat(1, 1fr);
+    }
     gap: 4px;
     border: 4px solid $colorWhite;
     box-shadow: $boxShadow;
@@ -980,6 +1021,19 @@ th{
 }
 
 .high-effect{
+  .content-para{
+        @media screen and (max-width:767.9px) {
+          margin-top: 1rem;
+        }
+  }
+  .row.align-items-center{
+    margin-top: 3rem;
+    p{
+      @media screen and (min-width:576.1px) {
+        font-size: 20px;
+      }
+    }
+  }
   .wrapper-high {
     display: flex;
     overflow: hidden;
@@ -1254,13 +1308,86 @@ th{
   }
 }
 .certificate{
-  img{
-    @media screen and (min-width:1200px) {
-      height: calc(100vh - 100px);
-      width: 100%;
-      object-fit: cover;
-      object-position: bottom;
+  background-image: url(../images/certificate-bg.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 70px 0;
+  margin-top: 70px;
+  @media screen and (max-width:992px) {
+    padding: 50px 0;
+    margin-top: 50px;
+  }
+  @media screen and (max-width:768px) {
+    padding: 40px 0;
+    margin-top: 40px;
+  }
+  position: relative;
+  &::before{
+    content: "";
+    @media screen and (min-width:992px) {
+      background-image: repeating-linear-gradient(-45deg, #ffffff, #ffffff 10%, #e6e7e8 0, #e6e7e8 28%);
     }
+    position: absolute;
+    width: 100%;
+    height: 12rem;
+    bottom: 8rem;
+    left: 0;
+    z-index: 0;
+    @media screen and (min-width:992px) and (max-width:1199.9px){
+      height: 9.7rem;
+    }
+  }
+  .container{
+    position: relative;
+    z-index: 1;
+  }
+  @media screen and (max-width:992px) {
+    padding: 50px 0;
+  }
+  @media screen and (max-width:768px) {
+    padding: 40px 0;
+  }
+  .certi{
+    padding: 1rem 0;
+    position: relative;
+    bottom: 58px;
+    @media screen and (max-width:992px) {
+      margin-bottom: 30px;
+    text-align: center;
+    }
+    @media screen and (max-width:991.9px) {
+      background-image: repeating-linear-gradient(-45deg, #ffffff, #ffffff 10%, #e6e7e8 0, #e6e7e8 28%);
+      bottom: 0;
+    padding: 1rem;
+    }
+  }
+  h2{
+    font-size: 4rem;
+  }
+  h3{
+    @media screen and (min-width:992px) {
+      text-align: right;
+    }
+    font-size: 3.5rem;
+  }
+  @media screen and (max-width:991.9px) {
+    h2{
+    font-size: 2rem;
+  }
+  h3{
+    font-size: 1.5rem;
+  }
+}
+
+  @media screen and (min-width:992px) and (max-width:1199.9px) {
+    h2{
+    font-size: 3rem;
+  }
+  h3{
+    text-align: right;
+    font-size: 2.5rem;
+  }
   }
 }
 .toolkit-book{
@@ -1271,6 +1398,9 @@ th{
   .nav-link{
     width: 33.3333%;
     padding: 1rem;
+    @media screen and (max-width:576px) {
+      padding: 1rem 0.5rem;
+    }
     color: $colorWhite;
     background: $GradientOne;
     border-radius: 0;
@@ -1294,6 +1424,18 @@ th{
     padding: 2rem 3rem;
     border: 1px solid $colorSecondary;
     border-top: none;
+    @media screen and (max-width:768px) {
+      .col-md-4:not(:last-child){
+        img{
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .row{
+      @media screen and (max-width:768px) {
+        gap: 30pxn;
+      }
+    }
     .tab-pane{
       &:nth-child(1){
       p{
@@ -1330,21 +1472,24 @@ th{
   }
 }
 .paying-forward{
-  .row{
-    @media screen and (max-width:992.1px) {
-      gap: 30px;
-    }
-  }
   .paying-card{
+    @media screen and (max-width:992.1px) {
+      margin-top: 2rem; 
+    }
     position: relative;
     padding: 30px 20px 0px 40px;
     min-height: 243px;
     background-color: rgba($colorBlue, 0.2);
     display: grid;
     .icons{
-      position: absolute;
+      @media screen and (max-width:767.0px) {
+        text-align: center;
+      }
+      @media screen and (min-width:768px) {
+        position: absolute;
       top: 0;
       left: 0;
+      }
       img{
         width: 2.5rem;
       }
@@ -1370,6 +1515,30 @@ th{
   }
 }
 .paying-gallery{
+  .owl-nav{
+    .owl-prev, .owl-next {
+    position: absolute;
+    top: 43%;
+    transform: translateY(-50%); background: rgba($colorWhite, 0.8)!important;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    transition: all 0.5s;
+    &:hover{
+      background: $colorWhite!important;
+    }
+    i{
+      color: $colorSecondary;
+    }
+}
+  .owl-prev{
+      left: 0;
+    }
+    .owl-next {
+    right: 0;
+}
+  }
   .item{
     overflow: hidden;
     .pay-img{
@@ -1408,6 +1577,13 @@ th{
   }
 }
 footer{
+  margin-top: 70px;
+  @media screen and (max-width:992px) {
+    margin-top: 50px;
+  }
+  @media screen and (max-width:768px) {
+    margin-top: 40px;
+  }
   .border-footer{
     background: $colorWhite;
     height: 5px;
@@ -1416,7 +1592,7 @@ footer{
   }
   background: $colorSecondary;
   padding-bottom: 70px;
-  margin-top: 70px;
+  // margin-top: 70px;
   position: relative;
   &::before{
     content: "";
@@ -1436,11 +1612,9 @@ footer{
   }
   @media screen and (max-width:992px) {
     padding-bottom: 50px;
-    margin-top: 50px;
   }
   @media screen and (max-width:768px) {
     padding-bottom: 40px;
-    margin-top: 40px;
   }
   h2{
     @media screen and (min-width:768px) {
@@ -1496,4 +1670,332 @@ img.footer-alfa {
     filter: brightness(6);
     margin-top: 2rem;
 }
+}
+
+.inner-section{
+  background: $colorSecondary;
+  position: relative;
+  min-height: 450px;
+  display: grid;
+  place-content: center;
+  
+    @media screen and (max-width:992px) and (min-width:576px) {
+      min-height: 380px;
+    }
+    @media screen and (max-width:575.9px) {
+      min-height: 250px;
+    }
+  &::before{
+        content: "";
+    background-image: url(../gallery/img/image191.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    mix-blend-mode: soft-light;
+    background-position: 100% 30%;
+    background-repeat: no-repeat;
+  }
+  .container{
+    position: relative;
+  }
+  h1{
+    padding-top: 50px;
+    text-transform: uppercase;
+    color: $colorWhite;
+    font-size: 72px;
+    @media screen and (max-width:992px) and (min-width:576px) {
+      font-size: 48px;
+    }
+    @media screen and (max-width:575.9px) {
+      font-size: 36px;
+    }
+  }
+}
+
+.lightbox-gallery{
+  .carousel-indicators {
+    display: none;
+}
+    @keyframes zoomin {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.gallery-item {
+  display: block;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    filter: none!important;
+    &::after{
+        width: 100%;
+        height: 4rem;
+        filter: brightness(10);
+    }
+}
+.gallery-item img {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s;
+  height: 270px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  @media screen and (max-width:575.9px) {
+    height: 240px;
+  }
+}
+
+.gallery-item:hover img {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.35);
+}
+
+.lightbox-modal .modal-content {
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(5px);
+  cursor: -webkit-grabbing;
+}
+
+.lightbox-modal .btn-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 2.2rem;
+  z-index: 10;
+  filter: invert(1) grayscale(100);
+  @media screen and (max-width:575.9px) {
+    font-size: 1rem;
+  }
+}
+
+.lightbox-modal .modal-body {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.lightbox-modal .lightbox-content {
+  width: 100%;
+}
+
+.lightbox-modal .carousel-indicators {
+  margin-bottom: 0;
+}
+
+
+.lightbox-modal .carousel-inner {
+  width: 75%;
+}
+
+.lightbox-modal .carousel-inner img {
+  animation: zoomin 10s linear infinite;
+  max-height: 80vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+.lightbox-modal .carousel-item .carousel-caption {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 2rem;
+  h4{
+    color: $colorWhite;
+    background: rgba($colorBlack, 0.8);
+    padding: 10px;
+  }
+}
+
+.lightbox-modal .carousel-control-prev,
+.lightbox-modal .carousel-control-next {
+  width: auto;
+}
+
+.lightbox-modal .carousel-control-prev {
+  left: 1.25rem;
+}
+
+.lightbox-modal .carousel-control-next {
+  right: 1.25rem;
+}
+
+@media (min-width: 1400px) {
+  .lightbox-modal .carousel-inner {
+    max-width: 60%;
+  }
+}
+
+[data-bs-theme = "dark"] .lightbox-modal .carousel-control-next-icon,
+[data-bs-theme = "dark"] .lightbox-modal .carousel-control-prev-icon {
+    filter: none;
+}
+
+.btn-fullscreen-enlarge,
+.btn-fullscreen-exit {
+  position: absolute;
+  top: 1.25rem;
+  right: 3.5rem;
+  z-index: 10;
+  border: 0;
+  background: transparent;
+  opacity: .6;
+  font-size: 1.25rem;
+}
+}
+.cms-cis-gallery{
+  .gallery-cis{
+    img{
+      height: 206.2px;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid $colorSecondary;
+      border-radius: 10px;
+      width: 100%;
+    }
+  }
+  .owl-nav{
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+    button i{
+      color: $colorWhite;
+      background: $colorSecondary;
+      padding: 10px;
+    }
+  }
+  .gal-btn{
+    text-align: center;
+    a{
+      background: $colorSecondary;
+      text-transform: capitalize;
+      font-weight: 700;
+      border-radius: 30px;
+      width: 270px;
+      border: 1px solid $colorSecondary;
+      transition: all 0.5s;
+      &:hover{
+        background: transparent;
+        color: $colorSecondary;
+      }
+    }
+  }
+}
+.interest-heads{
+  background-image: $GradientOne;
+  position: static;
+}
+
+.intersetForm {
+    @media screen and (min-width:1200px) {
+      max-width: 1140px;
+    }
+    margin: auto;
+    padding: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    background: $colorWhite;
+}
+
+.intersetForm label{
+  color: $colorBlack;
+}
+
+.intersetForm .form-control:focus,
+.intersetForm textarea:focus,
+.intersetForm textarea:focus-visible,
+.intersetForm .form-select:focus{
+    box-shadow: none;
+    border: 1px solid!important;
+}
+
+.intersetForm .form-control, .intersetForm .form-select {
+    border: 1px solid #cfcfcf;
+}
+
+.intersetForm textarea {
+    width: 100%;
+    border: 1px solid #cfcfcf;
+    resize: none;
+}
+
+.intersetForm .submit-area{
+  text-align: center;
+  button{
+    background-image: $GradientOne;
+  }
+}
+.intersetForm input#gradeLevels {
+    width: 200px;
+}
+
+.intersetForm input#gradeLevels::placeholder {
+    color: #cfcfcf;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.intersetForm input[type="radio"] {
+    position: absolute;
+    display: none;
+    transform: scale(0);
+}
+
+.intersetForm input[type="radio"] {
+  & + label {
+    background: $colorWhite;
+    border: 1px solid #cfcfcf;
+    display: block;
+    padding: 12px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-align: center;
+    &:hover{
+      background-image: $GradientOne;
+      color: $colorWhite;
+      cursor: pointer;
+    }
+}
+}
+.intersetForm input[type="radio"]:checked{
+& + label{
+    background-image: $GradientOne;
+    color: $colorWhite;
+  }
+}
+.formed-bg{
+  position: relative;
+  padding-bottom: 70px;
+  &::before{
+    content: "";
+    background-image: url(../images/image191.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    mix-blend-mode: hard-light;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.12;
+  }
+}
+.grade-grid .grade-gride-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1rem;
+}
+.grade-grid .grade-qty input::placeholder {
+    color: #cfcfcf;
+    font-size: 13px;
+    font-style: italic;
 }
