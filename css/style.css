@@ -1,7 +1,13 @@
 /* --------------------- Variable   ----------------------------*/
-/* --------------------- Base  ----------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
+@keyframes bouncing {
+  0% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(-20px); } }
+
+/* --------------------- Base  ----------------------------*/
 * {
   padding: 0;
   margin: 0;
@@ -227,7 +233,6 @@ header {
     animation: slidetop;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; }
     header.fixed-header .logo-grid img {
-      background-image: linear-gradient(135deg, #41b7e9 0%, #2482c4 50%);
       padding: 2px 4.5px 3px 0; }
     @media screen and (min-width: 992px) {
       header.fixed-header .container {
@@ -366,8 +371,10 @@ header {
     @media screen and (max-width: 768px) {
       .heroSection .kidsGrid__Items .kids-content {
         text-align: center; } }
-    .heroSection .kidsGrid__Items .kids-img img {
-      width: 100%; }
+    .heroSection .kidsGrid__Items .kids-img {
+      animation: bouncing .63s ease-in-out infinite alternate; }
+      .heroSection .kidsGrid__Items .kids-img img {
+        width: 100%; }
     .heroSection .kidsGrid__Items h1 {
       font-size: 80px;
       color: #ffffff;
@@ -1471,3 +1478,98 @@ footer {
     .cms-cis-gallery .gal-btn a:hover {
       background: transparent;
       color: #3e4095; }
+
+.interest-heads {
+  background-image: linear-gradient(135deg, #41b7e9 0%, #2482c4 50%);
+  position: static; }
+
+.intersetForm {
+  margin: auto;
+  padding: 30px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  background: #ffffff; }
+  @media screen and (min-width: 1200px) {
+    .intersetForm {
+      max-width: 1140px; } }
+
+.intersetForm label {
+  color: #373435; }
+
+.intersetForm .form-control:focus,
+.intersetForm textarea:focus,
+.intersetForm textarea:focus-visible,
+.intersetForm .form-select:focus {
+  box-shadow: none;
+  border: 1px solid !important; }
+
+.intersetForm .form-control, .intersetForm .form-select {
+  border: 1px solid #cfcfcf; }
+
+.intersetForm textarea {
+  width: 100%;
+  border: 1px solid #cfcfcf;
+  resize: none; }
+
+.intersetForm .submit-area {
+  text-align: center; }
+  .intersetForm .submit-area button {
+    background-image: linear-gradient(135deg, #41b7e9 0%, #2482c4 50%); }
+
+.intersetForm input#gradeLevels {
+  width: 200px; }
+
+.intersetForm input#gradeLevels::placeholder {
+  color: #cfcfcf;
+  font-size: 13px;
+  font-style: italic; }
+
+.intersetForm input[type="radio"] {
+  position: absolute;
+  display: none;
+  transform: scale(0); }
+
+.intersetForm input[type="radio"] + label {
+  background: #ffffff;
+  border: 1px solid #cfcfcf;
+  display: block;
+  padding: 12px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-align: center; }
+  .intersetForm input[type="radio"] + label:hover {
+    background-image: linear-gradient(135deg, #41b7e9 0%, #2482c4 50%);
+    color: #ffffff;
+    cursor: pointer; }
+
+.intersetForm input[type="radio"]:checked + label {
+  background-image: linear-gradient(135deg, #41b7e9 0%, #2482c4 50%);
+  color: #ffffff; }
+
+.formed-bg {
+  position: relative;
+  padding-bottom: 70px; }
+  .formed-bg::before {
+    content: "";
+    background-image: url(../images/image191.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    mix-blend-mode: hard-light;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.12; }
+
+.grade-grid .grade-gride-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1rem; }
+
+.grade-grid .grade-qty input::placeholder {
+  color: #cfcfcf;
+  font-size: 13px;
+  font-style: italic; }

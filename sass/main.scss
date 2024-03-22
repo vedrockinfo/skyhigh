@@ -19,6 +19,15 @@ $GradientOne:linear-gradient(135deg, rgba(65,183,233,1) 0%, rgba(36,130,196,1) 5
 
 $boxShadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
+@keyframes bouncing {
+  0% {
+      transform:translateY(0); 
+  }
+  100% {
+    transform:translateY(-20px);
+  }
+}
+
 /* --------------------- Base  ----------------------------*/
 
 * {
@@ -286,7 +295,7 @@ header {
     animation: slidetop;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     .logo-grid img{
-      background-image: $GradientOne;
+      // background-image: $GradientOne;
       padding: 2px 4.5px 3px 0;
     }
     @media screen and (min-width:992px) {
@@ -480,6 +489,7 @@ header {
         }
       }
       .kids-img{
+        animation: bouncing .63s ease-in-out infinite alternate;
         img{
           width: 100%;
         }
@@ -1877,4 +1887,115 @@ img.footer-alfa {
       }
     }
   }
+}
+.interest-heads{
+  background-image: $GradientOne;
+  position: static;
+}
+
+.intersetForm {
+    @media screen and (min-width:1200px) {
+      max-width: 1140px;
+    }
+    margin: auto;
+    padding: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    background: $colorWhite;
+}
+
+.intersetForm label{
+  color: $colorBlack;
+}
+
+.intersetForm .form-control:focus,
+.intersetForm textarea:focus,
+.intersetForm textarea:focus-visible,
+.intersetForm .form-select:focus{
+    box-shadow: none;
+    border: 1px solid!important;
+}
+
+.intersetForm .form-control, .intersetForm .form-select {
+    border: 1px solid #cfcfcf;
+}
+
+.intersetForm textarea {
+    width: 100%;
+    border: 1px solid #cfcfcf;
+    resize: none;
+}
+
+.intersetForm .submit-area{
+  text-align: center;
+  button{
+    background-image: $GradientOne;
+  }
+}
+.intersetForm input#gradeLevels {
+    width: 200px;
+}
+
+.intersetForm input#gradeLevels::placeholder {
+    color: #cfcfcf;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.intersetForm input[type="radio"] {
+    position: absolute;
+    display: none;
+    transform: scale(0);
+}
+
+.intersetForm input[type="radio"] {
+  & + label {
+    background: $colorWhite;
+    border: 1px solid #cfcfcf;
+    display: block;
+    padding: 12px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-align: center;
+    &:hover{
+      background-image: $GradientOne;
+      color: $colorWhite;
+      cursor: pointer;
+    }
+}
+}
+.intersetForm input[type="radio"]:checked{
+& + label{
+    background-image: $GradientOne;
+    color: $colorWhite;
+  }
+}
+.formed-bg{
+  position: relative;
+  padding-bottom: 70px;
+  &::before{
+    content: "";
+    background-image: url(../images/image191.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    mix-blend-mode: hard-light;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.12;
+  }
+}
+.grade-grid .grade-gride-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1rem;
+}
+.grade-grid .grade-qty input::placeholder {
+    color: #cfcfcf;
+    font-size: 13px;
+    font-style: italic;
 }
